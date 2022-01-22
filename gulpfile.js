@@ -132,3 +132,12 @@ gulp.task('move-fonts', ()=>{
 gulp.task('move', gulp.parallel('move-css', 'move-js', 'move-plugins', 'move-json', 'move-favicon', 'move-fonts'));
 
 gulp.task('build', gulp.series('cleartmp', 'clear', 'sass', gulp.parallel('build-html',  'minify-css', 'prepare-js'), 'imgmin', 'move'));
+
+
+var gulp = require('gulp');
+var ghPages = require('gulp-gh-pages');
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});
