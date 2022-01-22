@@ -1,0 +1,88 @@
+[
+    {
+        "country":"Austria",
+        "place":"Winter Park Ski Holiday",
+        "price":"1490",
+        "rait":5,
+        "image":"assets/images/lux_packages_1.jpg"
+    },
+    {
+        "country":"Peru",
+        "place":"Machu Picchu",
+        "price":"2300",
+        "rait":5,
+        "image":"assets/images/lux_packages_2.jpg"
+    },
+    {
+        "country":"Croatia",
+        "place":"Hvar",
+        "price":"4500",
+        "rait":4,
+        "image":"assets/images/lux_packages_3.jpg"
+    },
+    {
+        "country":"Jordan",
+        "place":"Wadi Musa",
+        "price":"4500",
+        "rait":5,
+        "image":"assets/images/lux_packages_4.jpg"
+    }
+    ,
+    {
+        "country":"Jordan",
+        "place":"Wadi Musa",
+        "price":"4500",
+        "rait":3,
+        "image":"assets/images/lux_packages_5.jpg"
+    },
+    {
+        "country":"Jordan",
+        "place":"Wadi Musa",
+        "price":"4500",
+        "rait":5,
+        "image":"assets/images/lux_packages_6.jpg"
+    },
+    {
+        "country":"Jordan",
+        "place":"Wadi Musa",
+        "price":"4500",
+        "rait":4,
+        "image":"assets/images/lux_packages_7.jpg"
+    },
+    {
+        "country":"Jordan",
+        "place":"Wadi Musa",
+        "price":"4500",
+        "rait":4,
+        "image":"assets/images/lux_packages_8.jpg"
+    },
+    {
+        "country":"Jordan",
+        "place":"Wadi Musa",
+        "price":"4500",
+        "rait":4,
+        "image":"assets/images/lux_packages_9.jpg"
+    },
+    {
+        "country":"Jordan",
+        "place":"Wadi Musa",
+        "price":"4500",
+        "rait":4,
+        "image":"assets/images/lux_packages_10.jpg"
+    },
+    {
+        "country":"Jordan",
+        "place":"Wadi Musa",
+        "price":"4500",
+        "rait":4,
+        "image":"assets/images/lux_packages_11.jpg"
+    },
+    {
+        "country":"Jordan",
+        "place":"Wadi Musa",
+        "price":"4500",
+        "rait":4,
+        "image":"assets/images/lux_packages_12.jpg"
+    }
+
+]

@@ -1,0 +1,94 @@
+.page_contact{
+    background-image: url(../images/bg_top_inner.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top 0 left 50%;
+    padding-top: 110px;
+    h2{
+        max-width: 540px;
+        margin: 0 auto 50px;
+        text-align: center;
+    }
+    .contact_info {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+    .item {
+        padding: 40px 10px;
+        text-align: center;
+        border-radius: 20px;
+        border: 1px solid #fff;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(130px);
+        width: calc(50% - 15px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        .or {
+            font-size: 16px;
+
+        }
+        .main_text{
+            font-family: 'Forum';
+            font-size: 40px;
+            line-height: 40px;
+            max-width: 320px;
+            text-align: center;
+        }
+        .mail {
+            font-family: 'Forum';
+            font-size: 24px;
+        }
+        .btn {
+            max-width: 280px;
+            width: 100%;
+            height: 55px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            font-size: 24px;
+            letter-spacing: 0.04em;
+        }
+    }
+    .map {
+        height: 565px;
+        width: 100%;
+        position: relative;
+        margin: 0 auto;
+        a {
+            height: 100%;
+            display: block;
+            overflow: hidden;
+            position: relative;
+            img {
+                height: 100%;
+                width: 100%;
+            }
+        }
+        p {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #fff;
+            background-color: #000;
+            text-align: none;
+            font-size: 40px;
+            opacity: 0;
+            transition: all .2s ease;
+        }
+        a:hover p {
+            opacity: .5;
+        }
+    }
+}

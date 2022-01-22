@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="@@webRoot/assets/plugins/slick/slick.css">
+    <link rel="stylesheet" href="@@webRoot/assets/plugins/slick/slick-theme.css">
+    <link rel="stylesheet" href="@@webRoot/assets/plugins/lightslider/css/lightslider.min.css">
+    <link rel="stylesheet" href="@@webRoot/assets/fonts/icon.css">
+    <link rel="stylesheet" href="@@webRoot/assets/fonts/fonts.css">
+    <link rel="stylesheet" href="@@webRoot/assets/plugins/modal/modal.min.css">
+    <link rel="stylesheet" href="@@webRoot/assets/plugins/toppanel/toppanel.min.css">
+    <link rel="stylesheet" href="@@webRoot/assets/css/style.min.css">
+</head>
+<body>
+    @@include('parts/mobile_menu.html')
+
+        @@include('parts/header.html')
+        <main>
+            <section class="lux_pack_page">
+                <div class="container">
+                    <div class="page_top">
+                        <h2>Luxury packages</h2>
+                    <div class="filter">
+                        <div class="filter_top">
+                            <h3 class="btn btn_decor btn_white">
+                                <i class="icon-btn_decor decor"></i>
+                                find your journey
+                            </h3>
+                        </div>
+                        <div class="filter_main">
+                            <div class="filter_coll">
+                                <i class="icon-romb_filters"></i>
+                                <div class="wrap">
+                                    <span class="over_text">Luxury Tours</span>
+                                    <span class="text">Romantic Winter Destinations</span>
+                                </div>
+                            </div>
+                            <div class="filter_coll">
+                                <i class="icon-calendar"></i>
+                                <div class="wrap">
+                                    <span class="over_text">When</span>
+                                    <span class="text">14 Dec 2022 - 28 Dec 2022</span>
+                                    <div id="map"></div>
+                                </div>
+                            </div>
+                            <div class="filter_coll">
+                                <i class="icon-person"></i>
+                                <div class="wrap">
+                                    <span class="over_text">Travellers</span>
+                                    <span class="text">2 Person</span>
+                                </div>
+                            </div>
+                            <div class="filter_coll">
+                                <label><input type="checkbox" name="tour_change">Group tours</label>
+                            </div>
+                            <div class="filter_coll">
+                                <label><input type="checkbox" name="tour_change">Customise tours</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    </div>
+                    <div id="lux_pack" class="gallery">
+                    </div>
+                </div>
+            </section>
+            @@include('parts/subscribe.html')
+        </main>
+        @@include('parts/footer.html')
+    
+
+        <script src="@@webRoot/assets/plugins/jquery-3.6.0.js"></script>
+        <script src="@@webRoot/assets/plugins/lightGallery/lightgallery.min.js" defer></script>
+        <script src="@@webRoot/assets/plugins/lightGallery/plugins/thumbnail/lg-thumbnail.umd.js" defer></script>
+        <script src="@@webRoot/assets/plugins/lightGallery/plugins/zoom/lg-zoom.min.js" defer></script>
+        
+        <script src="@@webRoot/assets/plugins/leflet/leaflet.js" defer></script>
+        <script src="@@webRoot/assets/plugins/lightslider/js/lightslider.min.js" defer></script>
+        <script src="@@webRoot/assets/js/all.min.js"></script>
+</body>
+</html>
