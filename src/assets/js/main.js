@@ -1,4 +1,3 @@
-
 function lazyForSlider (el) {
     var showActiveSlides = function (entries) {
         entries.forEach(function (entry) {
@@ -22,11 +21,11 @@ function lazyForSlider (el) {
 }
 
 const raiting = (r)=> `<div class="rait">${r.toFixed(1)}</div>`+'<div class="romb romb1"></div>'.repeat(5-r)+'<div class="romb"></div>'.repeat(r);
-
+const raitingComment = (r)=> '<div class="romb romb1"></div>'.repeat(5-r)+'<div class="romb"></div>'.repeat(r);
 $(function(){
     // Фикс Хедер
     $(window).on('scroll', function(){
-        if($(window).scrollTop()>0){
+        if($(window).scrollTop()>88){
             if(!$('body').hasClass('fixed_nav')){
             $('body').addClass('fixed_nav');
             }
@@ -168,7 +167,6 @@ $(function(){
     //карта в табах
     $("#init_map").on('click', function(){
         $(this).remove();
-        // Этого достаточно для отображения карты, без всяких инициализаций и маркеров
         var map = L.map('map').setView([-13.1634363, -72.5447859], 18);
         L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -180,20 +178,10 @@ $(function(){
         });
         //вставляем маркер
         const marker = L.marker([-13.1634363, -72.5447859], {icon:myIcon}).addTo(map)
-        .bindPopup(`
-        <div class="map_popup">
-        <img src="assets/images/car_1.jpg" alt="">
-        <div class="map_info">
-        <b>Hello</b>
-        <p>I am here</p>
-        </div>
-        </div>
-        `);
     });
-    //карта в контакстах
+    //карта в контактах
     $("#init_contact_map").on('click', function(){
         $(this).remove();
-        // Этого достаточно для отображения карты, без всяких инициализаций и маркеров
         var map = L.map('contact_map').setView([46.0026361, 8.9623026], 12);
         L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -205,15 +193,6 @@ $(function(){
         });
         //вставляем маркер
         const marker = L.marker([46.0026361, 8.9623026], {icon:myIcon}).addTo(map)
-        .bindPopup(`
-        <div class="map_popup">
-        <img src="assets/images/car_1.jpg" alt="">
-        <div class="map_info">
-        <b>Hello</b>
-        <p>I am here</p>
-        </div>
-        </div>
-        `);
     });
     //галерея
     lightGallery(document.getElementById('light_gallery'), {
@@ -243,35 +222,29 @@ $(function(){
     };    
     const BOT_TOKEN = '5003716983:AAEDXQ0C0Ljct6LZJkOWu2nh2Im_0qY6RXY';
     const CHAT_ID = '-1001631956890';
+    $(".form_phone").mask("+38 (999) 999-99-99");
     $('#subscribe_form').on('submit', function (e){
         e.preventDefault()
         let UserEmail = $('.form_email').val().trim();
         if (UserEmail === ''){
             tata.error('Enter your email', 'LuxTrips.com')
+        }else if (UserEmail === ''){
+            tata.error('Enter your email', 'LuxTrips.com')
+        }else if (!validateEmail(UserEmail)) {
+                tata.error(`${UserEmail} is not valid`, 'LuxTrips.com')
         }else{
-            const $result = $('#result');
-            $result.text('');
-            if (!validateEmail(UserEmail)) {
-                $result.text(UserEmail + ' is not valid :(');
-                $result.css('display', 'block');
-            }else{
-                $result.hide()
-                //TODO отправка в телеграмм
-                // @get_id_bot and /get_id
-                let text = encodeURI("<b>Email: </b>" +UserEmail);
-                $.get(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=`+text+'&parse_mode=html', (json)=>{
-                    console.log(json);
-                    if(json.ok){
-                        $("#subscribe_form").trigger('reset');
-                        tata.success('You ​successfully subscribe', 'LuxTrips.com')
-                    }else{
-                        alert(json.description);
-                    }
-                });
-            }
+            let text = encodeURI("<b>Email: </b>" +UserEmail);
+            $.get(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=`+text+'&parse_mode=html', (json)=>{
+                console.log(json);
+                if(json.ok){
+                    $("#subscribe_form").trigger('reset');
+                    tata.success('You ​successfully subscribe', 'LuxTrips.com')
+                }else{
+                    alert(json.description);
+                }
+            });
         }
     });
-    $(".form_phone").mask("+38 (999) 999-99-99");
     $('#contact_form').on('submit', function (e){
         e.preventDefault()
         let UserName = $('.form_name').val().trim();
@@ -291,6 +264,62 @@ $(function(){
                     alert(json.description);
                 }
             });
+        }
+    });
+    // пост комментария
+    $('#comment_form').on('submit', function (e){
+        e.preventDefault()
+        let UserEmail = $('.inp_mail').val().trim();
+        let UserName = $('.inp_name').val().trim();
+        let comment = $('.inp_comm').val().trim();
+        let raitComfort = $('input[name="star1"]:checked').val();
+        let raitHospitality = $('input[name="star2"]:checked').val();
+        let raitHygiene = $('input[name="star3"]:checked').val();
+        let raitReception = $('input[name="star4"]:checked').val();
+        let html = `
+            <div class="review_block">
+                <div class="text_wrap">
+                    <p class="citata">“${comment}”</p>
+                    <div class="author">${UserName}</div>
+                    <div class="date">Oct 02, 2021 at 8:27 am</div>
+                </div>
+                <div class="raiting_wrap">
+                    <div class="col_wrap">
+                        <div class="rait_romb_col">
+                            ${raitingComment(raitComfort)}
+                        </div>
+                        <div class="rait_text">Comfort</div>
+                    </div>
+                    <div class="col_wrap">
+                        <div class="rait_romb_col">
+                            ${raitingComment(raitHospitality)}
+                        </div>
+                        <div class="rait_text">Hospitality</div>
+                    </div>
+                    <div class="col_wrap">
+                        <div class="rait_romb_col">
+                            ${raitingComment(raitHygiene)}
+                        </div>
+                        <div class="rait_text">Hygiene</div>
+                    </div>
+                    <div class="col_wrap">
+                        <div class="rait_romb_col">
+                            ${raitingComment(raitReception)}
+                        </div>
+                        <div class="rait_text">Reception</div>
+                    </div>
+                </div>
+            </div>`;
+        if(UserName === ''){
+            tata.error('Enter your name', 'LuxTrips.com')
+        }else if (UserEmail === ''){
+            tata.error('Enter your email', 'LuxTrips.com')
+        }else if (!validateEmail(UserEmail)) {
+                tata.error(`${UserEmail} is not valid`, 'LuxTrips.com')
+        }else if(comment.length <= 30){
+            tata.error('Minimum comment length 30 characters', 'LuxTrips.com')
+        }else{
+            $('.revievs_items').append(html);
         }
     });
 });

@@ -257,6 +257,9 @@
     .page_content{
         .tabs_list {
             padding: 0px 30px;
+            i {
+                color: #79655E;;
+            }
             svg{
                 display: block;
             }
@@ -286,6 +289,18 @@
             }
         }
     }
+    .page_book{
+        background-image: url(../images/bg_top_inner.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: top 0 left 50%;
+        padding-top: 110px;
+        h2{
+            text-align: center;
+            margin-bottom: 50px;
+        }
+    }
+        
 }
 @media screen and (max-width:950px){
     .footer {
@@ -562,6 +577,16 @@
             padding: 30px;
         }
     }
+    // page book
+    .page_book{
+        .items_list {
+            .item {
+                .p {
+                    @include fz(35);
+                }
+            }
+        }
+    }
 }
 @media screen and (max-width:750px){
     .packages {
@@ -784,6 +809,9 @@
             .item {
                 width: 90%;
                 margin: 0 auto 0px;
+                .p {
+                    @include fz(44);
+                }
             }
         }
     }
@@ -1002,6 +1030,16 @@
         }
         .bottom {
             align-items: flex-start;
+        }
+    }
+    // page book
+    .page_book{
+        .items_list {
+            .item {
+                .p {
+                    @include fz(40);
+                }
+            }
         }
     }
 }

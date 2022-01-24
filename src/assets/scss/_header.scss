@@ -195,18 +195,23 @@ z-index: 999;
 
 .header {
     position: absolute;
-    top: 24px;
+    top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
     &_wrap{
-        height: 64px;
+        height: 88px;
         line-height: 64px;
         max-width: 1348px;
         width: 95%;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin: 0 auto;
+        .btn_callback_wrap {
+            padding: 10px 0;
+            transition: all .5s ease;
+        }
         .btn_callback_wrap.fixed {
             display: none;
         }
@@ -221,9 +226,25 @@ z-index: 999;
             align-items: center;
             justify-content: space-between;
             letter-spacing: 0.04em;
+            li {
+                position: relative;
+            }
+            .icon-btn_decor:before {
+                color: #000;
+                display: none;
+                position: absolute;
+                top: 30px;
+                font-size: 13px;
+                left: 50%;
+                transform: translate(-50%);
+            }
             li:hover{
                 transition: all .5s ease;
                 transform: scale(1.1);
+            }
+            li:hover .icon-btn_decor:before {
+                color: #000;
+                display: block;
             }
         }
     }

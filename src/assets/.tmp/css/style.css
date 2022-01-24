@@ -188,7 +188,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn_decor::before, .btn_decor::after {
   height: 55px;
-  width: 34%;
+  width: 32%;
   position: absolute;
   top: -9px;
   content: " ";
@@ -273,7 +273,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .decor {
-  font-size: 20.5px;
+  font-size: 20px;
   position: absolute;
   left: 49%;
   top: -25px;
@@ -526,19 +526,24 @@ h2 {
 
 .header {
   position: absolute;
-  top: 24px;
+  top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
 }
 .header_wrap {
-  height: 64px;
+  height: 88px;
   line-height: 64px;
   max-width: 1348px;
   width: 95%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 0 auto;
+}
+.header_wrap .btn_callback_wrap {
+  padding: 10px 0;
+  transition: all 0.5s ease;
 }
 .header_wrap .btn_callback_wrap.fixed {
   display: none;
@@ -555,9 +560,25 @@ h2 {
   justify-content: space-between;
   letter-spacing: 0.04em;
 }
+.header_nav .nav_menu li {
+  position: relative;
+}
+.header_nav .nav_menu .icon-btn_decor:before {
+  color: #000;
+  display: none;
+  position: absolute;
+  top: 30px;
+  font-size: 13px;
+  left: 50%;
+  transform: translate(-50%);
+}
 .header_nav .nav_menu li:hover {
   transition: all 0.5s ease;
   transform: scale(1.1);
+}
+.header_nav .nav_menu li:hover .icon-btn_decor:before {
+  color: #000;
+  display: block;
 }
 
 .top_rated {
@@ -1467,21 +1488,6 @@ h2 {
   display: flex;
   position: relative;
 }
-.subscribe #result {
-  position: absolute;
-  left: 30px;
-  font-family: "Manrope";
-  top: -30px;
-  font-size: 16px;
-  background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(20px);
-  border: 1px solid #fff;
-  padding: 5px;
-  border-radius: 15px;
-  display: none;
-  overflow: hidden;
-  color: red;
-}
 .subscribe input {
   background: rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(20px);
@@ -1712,6 +1718,11 @@ h2 {
   line-height: 55px;
   margin: 0 auto;
   top: 25px;
+  cursor: default;
+}
+.lux_pack_page .page_top .filter_top h3:hover {
+  backdrop-filter: none;
+  background-color: #fff;
 }
 .lux_pack_page .page_top .filter_main {
   font-family: "Manrope";
@@ -2027,7 +2038,7 @@ h2 {
 .page_content .tabs_list a:hover {
   transform: scale(1.1);
 }
-.page_content .tabs_list a:hover span {
+.page_content .tabs_list a:hover div {
   color: #000;
 }
 .page_content .tabs_list svg {
@@ -2049,13 +2060,6 @@ h2 {
 }
 .page_content .tabs_item.active i {
   display: block;
-}
-.page_content .tabs_item.active svg {
-  display: none;
-}
-.page_content .tabs_item.active span {
-  display: inline-block;
-  color: #262626;
 }
 .page_content .tabs_body {
   background-color: #fff;
@@ -2442,7 +2446,11 @@ h2 {
 }
 .page_content .tab_06 .reviews_form .field_wrap input:focus,
 .page_content .tab_06 .reviews_form .field_wrap textarea:focus {
-  outline: 2px solid #E2D3CE;
+  outline: none;
+  animation-name: blink;
+  animation-timing-function: linear;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
 }
 .page_content .tab_06 .reviews_form .field_wrap textarea {
   padding: 20px 30px;
@@ -2593,6 +2601,13 @@ h2 {
   border-radius: 30px;
   font-size: 24px;
   letter-spacing: 0.04em;
+  line-height: 55px;
+}
+.page_contact .item .btn:hover {
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000;
+  border: 1px solid #000;
 }
 .page_contact .map {
   height: 565px;
@@ -3012,6 +3027,9 @@ h2 {
   .page_content .tabs_list {
     padding: 0px 30px;
   }
+  .page_content .tabs_list i {
+    color: #79655E;
+  }
   .page_content .tabs_list svg {
     display: block;
   }
@@ -3033,6 +3051,18 @@ h2 {
   .page_content .tab_01 .departure .semi_bold {
     max-width: 138px;
     width: 100%;
+  }
+
+  .page_book {
+    background-image: url(../images/bg_top_inner.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top 0 left 50%;
+    padding-top: 110px;
+  }
+  .page_book h2 {
+    text-align: center;
+    margin-bottom: 50px;
   }
 }
 @media screen and (max-width: 950px) {
@@ -3275,6 +3305,10 @@ h2 {
   .page_content .tab_07 {
     padding: 30px;
   }
+
+  .page_book .items_list .item .p {
+    font-size: 2.1875rem;
+  }
 }
 @media screen and (max-width: 750px) {
   .packages .packages_wrap {
@@ -3472,6 +3506,9 @@ h2 {
     width: 90%;
     margin: 0 auto 0px;
   }
+  .page_book .items_list .item .p {
+    font-size: 2.75rem;
+  }
 }
 @media screen and (max-width: 550px) {
   .customize .wrap {
@@ -3664,5 +3701,9 @@ h2 {
   }
   .why_lux .bottom {
     align-items: flex-start;
+  }
+
+  .page_book .items_list .item .p {
+    font-size: 2.5rem;
   }
 }

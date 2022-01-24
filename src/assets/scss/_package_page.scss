@@ -152,7 +152,7 @@
             position: relative;
             &:hover{
                 transform: scale(1.1);
-                span{
+                div{
                     color: #000;
                 }
             }
@@ -178,13 +178,6 @@
     .tabs_item.active {
         i {
             display: block;
-        }
-        svg {
-            display: none;
-        }
-        span{
-            display: inline-block;
-            color: #262626;
         }
     }
     .tabs_body {
@@ -575,8 +568,12 @@
                     font-family: Manrope;
                     width: 100%;
                     height: 55px;
-                    &:focus{
-                        outline: 2px solid #E2D3CE;
+                    &:focus {
+                        outline: none;
+                        animation-name: blink;
+                        animation-timing-function: linear;
+                        animation-duration: 1.5s;
+                        animation-iteration-count: infinite;
                     }
                 }
                 textarea {
