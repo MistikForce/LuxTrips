@@ -2393,6 +2393,7 @@ h2 {
 }
 .page_content .tab_06 .review_block .citata {
   margin-bottom: 34px;
+  height: auto;
 }
 .page_content .tab_06 .review_block .author {
   font-weight: 500;

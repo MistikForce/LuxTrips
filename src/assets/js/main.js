@@ -19,9 +19,9 @@ function lazyForSlider (el) {
         observer.observe(this);
     });
 }
-
 const raiting = (r)=> `<div class="rait">${r.toFixed(1)}</div>`+'<div class="romb romb1"></div>'.repeat(5-r)+'<div class="romb"></div>'.repeat(r);
 const raitingComment = (r)=> '<div class="romb romb1"></div>'.repeat(5-r)+'<div class="romb"></div>'.repeat(r);
+
 $(function(){
     // Фикс Хедер
     $(window).on('scroll', function(){
@@ -194,16 +194,6 @@ $(function(){
         //вставляем маркер
         const marker = L.marker([46.0026361, 8.9623026], {icon:myIcon}).addTo(map)
     });
-    //галерея
-    lightGallery(document.getElementById('light_gallery'), {
-        plugins: [lgZoom, lgThumbnail],
-        speed: 500,
-        thumbnail: true,
-        preload: true,
-        actualSize: true,
-        animateThumb: true,
-        zoomFromOrigin: true,
-    });  
     //табы  
     $('.tabs_item').on('click', function(e){
         e.preventDefault();
@@ -214,6 +204,17 @@ $(function(){
             $($(this).attr('href')).addClass('active');
         }
     });
+    //галерея
+    //галерея
+    lightGallery(document.getElementById('light_gallery'), {
+        plugins: [lgZoom, lgThumbnail],
+        speed: 500,
+        thumbnail: true,
+        preload: true,
+        actualSize: true,
+        animateThumb: true,
+        zoomFromOrigin: true,
+    });    
     // валидация форм + телеграмм
     const validateEmail = (email) => {
         return email.match(
@@ -281,7 +282,7 @@ $(function(){
                 <div class="text_wrap">
                     <p class="citata">“${comment}”</p>
                     <div class="author">${UserName}</div>
-                    <div class="date">Oct 02, 2021 at 8:27 am</div>
+                    <div class="date">${moment().format('lll')}</div>
                 </div>
                 <div class="raiting_wrap">
                     <div class="col_wrap">
@@ -319,7 +320,7 @@ $(function(){
         }else if(comment.length <= 30){
             tata.error('Minimum comment length 30 characters', 'LuxTrips.com')
         }else{
-            $('.revievs_items').append(html);
+            $('.reviews_items').append(html);
         }
     });
 });
