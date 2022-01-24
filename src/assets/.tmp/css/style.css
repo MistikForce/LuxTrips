@@ -1480,6 +1480,7 @@ h2 {
   border-radius: 15px;
   display: none;
   overflow: hidden;
+  color: red;
 }
 .subscribe input {
   background: rgba(255, 255, 255, 0.14);

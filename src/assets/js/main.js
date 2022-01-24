@@ -1,7 +1,3 @@
-// $(function(){
-//     console.log("test");
-//     topPanel("qwe");
-// })
 
 function lazyForSlider (el) {
     var showActiveSlides = function (entries) {
@@ -228,16 +224,8 @@ $(function(){
         actualSize: true,
         animateThumb: true,
         zoomFromOrigin: true,
-    });    
-    // $("#light_gallery").lightGallery({
-    //     plugins: [lgZoom, lgThumbnail],
-    //     speed: 500,
-    //     thumbnail: true,
-    //     preload: true,
-    //     actualSize: true,
-    //     animateThumb: true,
-    //     zoomFromOrigin: true,
-    // });
+    });  
+    //табы  
     $('.tabs_item').on('click', function(e){
         e.preventDefault();
         if(!$(this).hasClass('active')){
@@ -247,63 +235,62 @@ $(function(){
             $($(this).attr('href')).addClass('active');
         }
     });
-
-    // валидация форм 
+    // валидация форм + телеграмм
     const validateEmail = (email) => {
         return email.match(
             /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         );
-    };  
-    let email = $('.form_email').val().trim();
-    // const validate = () => {
-    //     const $result = $('#result');
-    //     $result.text('');
-    //     if (validateEmail(email)) {
-    //         $result.text(email + ' is valid :)');
-    //         $result.css('color', 'green');
-    //         $result.css('display', 'block');
-    //     } else {
-    //         $result.text(email + ' is not valid :(');
-    //         $result.css('color', 'red');
-    //         $result.css('display', 'block');
-    //     }
-    //     return false;
-    // }
-    // validate();
-
+    };    
+    const BOT_TOKEN = '5003716983:AAEDXQ0C0Ljct6LZJkOWu2nh2Im_0qY6RXY';
+    const CHAT_ID = '-1001631956890';
     $('#subscribe_form').on('submit', function (e){
         e.preventDefault()
-        if (email === ''){
+        let UserEmail = $('.form_email').val().trim();
+        if (UserEmail === ''){
             tata.error('Enter your email', 'LuxTrips.com')
         }else{
-            const validate = () => {
             const $result = $('#result');
             $result.text('');
-            if (validateEmail(email)) {
-                $result.text(email + ' is valid :)');
-                $result.css('color', 'green');
+            if (!validateEmail(UserEmail)) {
+                $result.text(UserEmail + ' is not valid :(');
                 $result.css('display', 'block');
-            } else {
-                $result.text(email + ' is not valid :(');
-                $result.css('color', 'red');
-                $result.css('display', 'block');
+            }else{
+                $result.hide()
+                //TODO отправка в телеграмм
+                // @get_id_bot and /get_id
+                let text = encodeURI("<b>Email: </b>" +UserEmail);
+                $.get(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=`+text+'&parse_mode=html', (json)=>{
+                    console.log(json);
+                    if(json.ok){
+                        $("#subscribe_form").trigger('reset');
+                        tata.success('You ​successfully subscribe', 'LuxTrips.com')
+                    }else{
+                        alert(json.description);
+                    }
+                });
             }
-            return false;
-            }
-            validate();
         }
     });
-
-    function validateForm () {
-        if ($('.form_name').val().trim() === ''){
-            tata.success('Enter your name', 'LuxTrips.com')
+    $(".form_phone").mask("+38 (999) 999-99-99");
+    $('#contact_form').on('submit', function (e){
+        e.preventDefault()
+        let UserName = $('.form_name').val().trim();
+        let UserPhone = $('.form_phone').val().trim();
+        if (UserName === ''){
+            tata.error('Enter your name', 'LuxTrips.com')
+        }else if(UserPhone === ''){
+            tata.error('Enter your phone number', 'LuxTrips.com')
+        }else{
+            let text = encodeURI("<b>Name:</b> "+UserName+"\r\n<b>Phone:</b>" +UserPhone);
+            $.get(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=`+text+'&parse_mode=html', (json)=>{
+                console.log(json);
+                if(json.ok){
+                    $("#subscribe_form").trigger('reset');
+                    tata.success('Your data has been sent', 'LuxTrips.com')
+                }else{
+                    alert(json.description);
+                }
+            });
         }
-        if ($('.form_email').val().trim() === ''){
-            tata.success('Enter your email', 'LuxTrips.com')
-        }
-        if ($('.form_phone').val().trim() === ''){
-            tata.success('Enter your number', 'LuxTrips.com')
-        }
-    }
-
+    });
 });

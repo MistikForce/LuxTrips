@@ -10,6 +10,8 @@ const fileInclude =     require('gulp-file-include');
 const del =             require('del');
 const imgmin =          require('gulp-imagemin');
 const uglify =          require('gulp-uglify-es').default;
+const ghPages =         require('gulp-gh-pages');
+
 
 const ASSETS = "src/assets/";
 const ASSETS_DIST = "dist/assets/";
@@ -134,8 +136,6 @@ gulp.task('move', gulp.parallel('move-css', 'move-js', 'move-plugins', 'move-jso
 gulp.task('build', gulp.series('cleartmp', 'clear', 'sass', gulp.parallel('build-html',  'minify-css', 'prepare-js'), 'imgmin', 'move'));
 
 
-var gulp = require('gulp');
-var ghPages = require('gulp-gh-pages');
 
 gulp.task('deploy', function() {
   return gulp.src('./dist/**/*')
