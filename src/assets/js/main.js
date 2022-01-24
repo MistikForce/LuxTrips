@@ -77,12 +77,12 @@ $(function(){
                                 ${raiting(json[i].rait)}
                             </div>
                         </div>
-                        <div class="image"><img src="${json[i].image}" alt="${json[i].place}"></div>
+                        <div class="image"><img data-src="${json[i].image}" alt="${json[i].place}"></div>
                     </a>
                 </li>`;
             }
             $("#slider").html(html);
-            $("#slider").lightSlider({
+            let slider = $("#slider").lightSlider({
                 item:3,
                 auto: true,
                 speed: 2000,
@@ -90,6 +90,7 @@ $(function(){
                 // loop: true,
                 slideMargin: 30,
                 // adaptiveHeight:true,
+                onSliderLoad: function(el){lazyForSlider(el)},
                 pager: false,
                 responsive : [
                     {
@@ -146,7 +147,8 @@ $(function(){
             }
             $("#lux_pack").html(html);
         }
-    });   
+    });  
+    //слайдер отзывов 
     $("#slider_reviews").lightSlider({
         item:2,
         auto: false,
@@ -204,7 +206,6 @@ $(function(){
             $($(this).attr('href')).addClass('active');
         }
     });
-    //галерея
     //галерея
     lightGallery(document.getElementById('light_gallery'), {
         plugins: [lgZoom, lgThumbnail],

@@ -3,7 +3,7 @@
         "country":"Austria",
         "place":"Winter Park Ski Holiday",
         "price":"1490",
-        "rait":5,
+        "rait":4,
         "image":"assets/images/lux_packages_1.jpg"
     },
     {
@@ -24,7 +24,7 @@
         "country":"Jordan",
         "place":"Wadi Musa",
         "price":"4500",
-        "rait":5,
+        "rait":4,
         "image":"assets/images/lux_packages_4.jpg"
     }
     ,
@@ -60,7 +60,7 @@
         "country":"Jordan",
         "place":"Wadi Musa",
         "price":"4500",
-        "rait":4,
+        "rait":3,
         "image":"assets/images/lux_packages_9.jpg"
     },
     {
@@ -74,7 +74,7 @@
         "country":"Jordan",
         "place":"Wadi Musa",
         "price":"4500",
-        "rait":4,
+        "rait":5,
         "image":"assets/images/lux_packages_11.jpg"
     },
     {

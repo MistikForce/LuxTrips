@@ -127,7 +127,7 @@ gulp.task('move-favicon', ()=>{
 
 gulp.task('move-seo', ()=>{
     return gulp
-        .src('robots.txt')
+        .src(['robots.txt', 'sitemap.xml'])
         .pipe(gulp.dest('dist/'));
 });
 
@@ -138,7 +138,7 @@ gulp.task('move-fonts', ()=>{
 });
 
 
-gulp.task('move', gulp.parallel('move-css', 'move-js', 'move-plugins', 'move-json', 'move-favicon', 'move-fonts', 'move-svg'));
+gulp.task('move', gulp.parallel('move-css', 'move-js', 'move-plugins', 'move-json', 'move-favicon', 'move-fonts', 'move-svg', 'move-seo'));
 
 gulp.task('build', gulp.series('cleartmp', 'clear', 'sass', gulp.parallel('build-html',  'minify-css', 'prepare-js'), 'imgmin', 'move'));
 
