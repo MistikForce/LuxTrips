@@ -237,7 +237,6 @@ $(function(){
         }else{
             let text = encodeURI("<b>Email: </b>" +UserEmail);
             $.get(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=`+text+'&parse_mode=html', (json)=>{
-                console.log(json);
                 if(json.ok){
                     $("#subscribe_form").trigger('reset');
                     tata.success('You ​successfully subscribe', 'LuxTrips.com')
@@ -258,9 +257,8 @@ $(function(){
         }else{
             let text = encodeURI("<b>Name:</b> "+UserName+"\r\n<b>Phone:</b>" +UserPhone);
             $.get(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=`+text+'&parse_mode=html', (json)=>{
-                console.log(json);
                 if(json.ok){
-                    $("#subscribe_form").trigger('reset');
+                    $("#contact_form").trigger('reset');
                     tata.success('Your data has been sent', 'LuxTrips.com')
                 }else{
                     alert(json.description);
@@ -322,6 +320,9 @@ $(function(){
             tata.error('Minimum comment length 30 characters', 'LuxTrips.com')
         }else{
             $('.reviews_items').append(html);
+            $("#comment_form").trigger('reset');
+            tata.success('Сomment sent successfully', 'LuxTrips.com')
+
         }
     });
 });
