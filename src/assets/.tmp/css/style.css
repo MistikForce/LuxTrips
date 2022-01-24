@@ -885,8 +885,8 @@ h2 {
   top: 34.5%;
 }
 .top .background .layot_4 .rombs_wrap .romb {
-  background: rgba(255, 255, 255, 0.31);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(3px);
   height: calc(18px + 11 * (100vw - 374px) / 1226);
   width: calc(18px + 11 * (100vw - 374px) / 1226);
   transform: rotate(45deg) skew(17deg, 17deg);
@@ -905,7 +905,6 @@ h2 {
   top: 61.3%;
 }
 .top .background .layot_4 .rombs_wrap .romb.r3 {
-  backdrop-filter: blur(2px);
   height: calc(75px + 40 * (100vw - 374px) / 1226);
   width: calc(75px + 40 * (100vw - 374px) / 1226);
   position: absolute;
