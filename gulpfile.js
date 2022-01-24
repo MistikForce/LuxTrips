@@ -125,13 +125,20 @@ gulp.task('move-favicon', ()=>{
         .pipe(gulp.dest(ASSETS_DIST + 'favicon/'));
 });
 
+gulp.task('move-seo', ()=>{
+    return gulp
+        .src('robots.txt')
+        .pipe(gulp.dest('dist/'));
+});
+
 gulp.task('move-fonts', ()=>{
     return gulp
         .src(ASSETS+'fonts/**/*')
         .pipe(gulp.dest(ASSETS_DIST+'fonts/'));
 });
 
-gulp.task('move', gulp.parallel('move-css', 'move-js', 'move-plugins', 'move-json', 'move-favicon', 'move-fonts'));
+
+gulp.task('move', gulp.parallel('move-css', 'move-js', 'move-plugins', 'move-json', 'move-favicon', 'move-fonts', 'move-svg'));
 
 gulp.task('build', gulp.series('cleartmp', 'clear', 'sass', gulp.parallel('build-html',  'minify-css', 'prepare-js'), 'imgmin', 'move'));
 
